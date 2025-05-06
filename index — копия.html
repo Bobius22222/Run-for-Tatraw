@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run for Recovery - Fighting Eating Disorders</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./Image/photo_2025-01-18_22-29-16.ico">
+</head>
+<body>
+
+    <div id="main-page" class="page">
+        <header>
+            <h1>Run for Recovery</h1>
+            <p>Supporting Eating Disorder Recovery Through Sports</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#main-page" class="active-page">Home</a></li>
+                <li><a href="#info-page">About</a></li>
+                <li><a href="#participate-page">Participate</a></li>
+                <li><a href="#fundraising-page">Donate</a></li>
+            </ul>
+        </nav>
+        
+        <div class="container">
+            <div class="hero">
+                <img src="Image/take%20part.png" alt="Runners at starting line" class="hero-image">
+                <h1>Join Our Movement</h1>
+                <p>Annual charity run supporting those affected by eating disorders. Together we can make a difference.</p>
+                <a href="#participate-page" class="btn">Register Now</a>
+            </div>
+            
+            <div class="card">
+                <h2>Why Participate?</h2>
+                <ul class="benefits-list">
+                    <li>Promote mental health through physical activity</li>
+                    <li>Help fund treatment programs for bulimia</li>
+                    <li>Raise awareness about eating disorders</li>
+                    <li>Join a supportive community of advocates</li>
+                    <li>Make a tangible difference in people's lives</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Event Details</h2>
+                <p><strong>Date:</strong> June 15, 2025</p>
+                <p><strong>Location:</strong> Riverfront Park, starting at 8:00 AM</p>
+                <p>Our charity run is more than just a sporting event - it's a powerful movement to change lives. All proceeds go directly to funding treatment programs, psychological support, and educational initiatives about eating disorders.</p>
+                <a href="#info-page" class="btn">Learn More</a>
+            </div>
+
+            <div class="card">
+                <h2>Course Map</h2>
+                <img src="Image/run%20map.png" alt="Course map with checkpoints" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+
+            <div class="card">
+                <h2>Run for a Cause</h2>
+                <img src="Image/run%20for.png" alt="Group of runners smiling" class="hero-image">
+            </div>
+
+            <div class="card partner-logos">
+                <img src="Image/bbc.jpg" alt="City Medical Center">
+                <img src="Image/red%20bull.png" alt="Youth Wellness Initiative">
+            </div>
+        </div>
+        
+        <footer>
+            <p>Contact: <a href="mailto:Runrunforrecovery@gmail.com">Runrunforrecovery@gmail.com</a> | Tel: (222) 222-2222</p>
+            <p>&copy; 2025 Run for Recovery. All rights reserved.</p>
+        </footer>
+    
+    <div id="info-page" class="page" style="display:none;">
+        <div class="container">
+            <div class="card">
+                <h2>About the Event</h2>
+                <p>Run for Recovery is an annual charity run that raises awareness and funds for eating disorder recovery programs. Our goal is to inspire change, encourage healthy habits, and support those in need.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="participate-page" class="page" style="display:none;">
+        <div class="container">
+            <div class="card">
+                <h2>Participate</h2>
+                <p>Whether you're a seasoned runner or a first-timer, everyone is welcome. Choose your distance, gather your supporters, and get ready to run for a cause.</p>
+                <a href="#" class="btn">Sign Up Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="fundraising-page" class="page" style="display:none;">
+        <div class="container">
+            <div class="card">
+                <h2>Donate</h2>
+                <p>Your contributions help provide therapy, support groups, and education to individuals affected by eating disorders. Every donation matters.</p>
+                <a href="#" class="btn">Make a Donation</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('main-page').style.display = 'block';
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.style.display = 'none';
+                    });
+
+                    const targetId = this.getAttribute('href');
+                    document.querySelector(targetId).style.display = 'block';
+
+                    document.querySelectorAll('nav a').forEach(navLink => {
+                        navLink.classList.remove('active-page');
+                    });
+                    this.classList.add('active-page');
+                
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            if (window.location.hash) {
+                const targetPage = document.querySelector(window.location.hash);
+                if (targetPage) {
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.style.display = 'none';
+                    });
+                    targetPage.style.display = 'block';
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active-page');
+                        if (link.getAttribute('href') === window.location.hash) {
+                            link.classList.add('active-page');
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
